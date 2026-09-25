@@ -27,6 +27,7 @@ module tools.jackson.dataformat.xml
     // Other Test dependencies
 
     requires com.ctc.wstx; // woodstox
+    requires org.apache.commons.xml.secure;
     requires jakarta.xml.bind; // Jakarta-binding
     requires tools.jackson.module.jakarta.xmlbind;
     

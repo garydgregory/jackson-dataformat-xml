@@ -2,6 +2,7 @@
 module tools.jackson.dataformat.xml
 {
     requires java.xml;
+    requires org.apache.commons.xml.secure;
     requires org.codehaus.stax2; // stax2-api
 
     requires transitive com.fasterxml.jackson.annotation;

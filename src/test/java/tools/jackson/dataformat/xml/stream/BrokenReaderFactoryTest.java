@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import com.ctc.wstx.stax.WstxInputFactory;
+import org.apache.commons.xml.secure.SecureXMLInputFactory;
 
 import tools.jackson.core.exc.StreamReadException;
 
@@ -61,7 +62,7 @@ public class BrokenReaderFactoryTest extends XmlTestUtil
      * {@code ArrayIndexOutOfBoundsException} gets covered too.
      */
     static class BrokenBasicInputFactory extends XMLInputFactory {
-        private final XMLInputFactory _delegate = XMLInputFactory.newDefaultFactory();
+        private final XMLInputFactory _delegate = SecureXMLInputFactory.newDefaultFactory();
 
         // The 3 creation methods `XmlFactory` may call: all fail
 

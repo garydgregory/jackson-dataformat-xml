@@ -6,6 +6,7 @@ import javax.xml.stream.XMLInputFactory;
 import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.apache.commons.xml.secure.SecureXMLInputFactory;
 
 import tools.jackson.dataformat.xml.*;
 import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
@@ -57,7 +58,7 @@ public class NonNamespaceAwareDeser422Test extends XmlTestUtil
     @Test
     public void testBigDocIssue422() throws Exception
     {
-        final XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
+        final XMLInputFactory xmlInputFactory = SecureXMLInputFactory.newInstance();
         xmlInputFactory.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, false);
         final XmlMapper xmlMapper = XmlMapper.builder(XmlFactory.builder()
                 .xmlInputFactory(xmlInputFactory)

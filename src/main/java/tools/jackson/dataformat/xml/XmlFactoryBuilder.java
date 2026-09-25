@@ -5,6 +5,8 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
 import tools.jackson.core.ErrorReportConfiguration;
+
+import org.apache.commons.xml.secure.SecureXMLInputFactory;
 import tools.jackson.core.StreamReadConstraints;
 import tools.jackson.core.StreamWriteConstraints;
 import tools.jackson.core.base.DecorableTSFactory.DecorableTSFBuilder;
@@ -108,10 +110,10 @@ public class XmlFactoryBuilder extends DecorableTSFBuilder<XmlFactory, XmlFactor
         // 05-Jul-2021, tatu: as per [dataformat-xml#483], consider ClassLoader
         XMLInputFactory xmlIn;
         try {
-            xmlIn = XMLInputFactory.newFactory(XMLInputFactory.class.getName(), cl);
+            xmlIn = SecureXMLInputFactory.newFactory(XMLInputFactory.class.getName(), cl);
         } catch (FactoryConfigurationError | NoSuchMethodError e) {
             // 24-Oct-2022, tatu: as per [dataformat-xml#550] need extra care
-            xmlIn = XMLInputFactory.newFactory();
+            xmlIn = SecureXMLInputFactory.newFactory();
         }
         return secureXmlInputFactory(xmlIn);
     }

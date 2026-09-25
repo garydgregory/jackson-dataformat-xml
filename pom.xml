@@ -78,6 +78,11 @@ alternative support for serializing POJOs as XML and deserializing XML as POJOs.
         </exclusion>
       </exclusions> 
     </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-secure-xml</artifactId>
+      <version>1.0.0</version>
+    </dependency>
 
     <!-- Test dependencies -->
     
